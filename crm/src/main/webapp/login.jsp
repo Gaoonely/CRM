@@ -15,7 +15,39 @@
 			$("#username").val("");
 			$("#password").val("");
 			$("#username").focus();
+			$(window).keydown(function (element){
+				if (element.keyCode==13){
+					login();
+				}
+			})
+			$("#submit").click(function (){
+				login();
+			})
 		})
+		function login(){
+			//trim()方法用于去除前后空格
+			var loginAct = $("#username").val().trim();
+			var loginPwd = $("#password").val().trim();
+			if (loginAct==""||loginPwd==""){
+				$("#msg").text("用户名密码不能为空");
+			}else {
+				$.ajax({url:"setting/User/login.do",
+					type:"post",
+					dataType:"json",
+					data:{"loginAct":loginAct,"loginPwd":loginPwd},
+					success:function (data){
+						if (data.success){
+							document.location.href = "workbench/index.html";
+						}else {
+							$("#msg").text(data.msg);
+						}
+
+					}
+				}
+			)
+				alert("用户名:"+loginAct);
+			}
+		}
 	</script>
 </head>
 <body>
@@ -31,7 +63,7 @@
 			<div class="page-header">
 				<h1>登录</h1>
 			</div>
-			<form action="workbench/index.html" class="form-horizontal" role="form">
+			<form  class="form-horizontal" role="form">
 				<div class="form-group form-group-lg">
 					<div style="width: 350px;">
 						<input class="form-control" type="text" placeholder="用户名" id="username">

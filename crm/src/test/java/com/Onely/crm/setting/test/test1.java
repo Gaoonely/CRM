@@ -18,6 +18,7 @@ public class test1 {
         if(i>0){
             System.out.println("账号超过有效期限");
         }
+        System.out.println("测试");
         String p = "134";
         String pm = MD5Util.getMD5(p);
         String p2 = "134";
