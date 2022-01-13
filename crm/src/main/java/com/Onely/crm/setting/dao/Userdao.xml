@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Onely.crm.setting.dao.Userdao">
+
+    <resultMap id="umap" type="User" >
+        <!--id用于配置主键映射，result用于配置其他字段-->
+        <!--property代表domain类中属性名，column代表数据库中对应字段名-->
+
+    </resultMap>
+
+</mapper>
