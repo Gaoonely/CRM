@@ -39,7 +39,7 @@
 						if (data.success){
 							document.location.href = "workbench/index.html";
 						}else {
-							$("#msg").text(data.msg);
+							$("#msg").html(data.msg);
 						}
 
 					}
