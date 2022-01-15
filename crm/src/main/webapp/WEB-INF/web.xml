@@ -14,6 +14,15 @@
     <filter-name>com.Onely.crm.web.filers.EncodeFilter</filter-name>
     <url-pattern>*.do</url-pattern>
   </filter-mapping>
+  <filter>
+    <filter-name>com.Onely.crm.web.filers.LoginFilter</filter-name>
+    <filter-class>com.Onely.crm.web.filers.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>com.Onely.crm.web.filers.LoginFilter</filter-name>
+    <url-pattern>*.do</url-pattern>
+    <url-pattern>*.jsp</url-pattern>
+  </filter-mapping>
 
   <servlet>
     <servlet-name>UserController</servlet-name>
