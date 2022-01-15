@@ -12,6 +12,11 @@
 <script type="text/javascript" src="jquery/bootstrap_3.3.0/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 		$(function (){
+			//将登录界面始终设置为顶层页面，不在其他页面中作为一个模块展示
+			if(window.top!=window){
+				window.top.location = window.location;
+			}
+
 			$("#username").val("");
 			$("#password").val("");
 			$("#username").focus();
