@@ -37,7 +37,7 @@
 					data:{"loginAct":loginAct,"loginPwd":loginPwd},
 					success:function (data){
 						if (data.success){
-							document.location.href = "workbench/index.html";
+							document.location.href = "workbench/index.jsp";
 						}else {
 							$("#msg").html(data.msg);
 						}
@@ -45,7 +45,7 @@
 					}
 				}
 			)
-				alert("用户名:"+loginAct);
+				// alert("用户名:"+loginAct);
 			}
 		}
 	</script>
