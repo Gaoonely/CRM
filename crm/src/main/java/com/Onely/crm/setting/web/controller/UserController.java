@@ -26,8 +26,6 @@ public class UserController extends HttpServlet {
         String servletPath = request.getServletPath();
         if ("/setting/User/login.do".equals(servletPath)){
             login(request,response);
-        }else {
-
         }
     }
 

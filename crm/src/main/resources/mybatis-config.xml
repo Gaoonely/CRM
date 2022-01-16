@@ -11,6 +11,7 @@
 
     <!--自动为指定包下所有类起别名，配置相应xml映射文件时只需要写类名就可以-->
     <package name="com.Onely.crm.setting.domain"/>
+    <package name="com.Onely.crm.workbench.domain"/>
 
   </typeAliases>
   <environments default="development">
@@ -28,6 +29,7 @@
     <!--注册指定mapper文件： <mapper resource="com.Mylearning/dao/ProvinceDao.xml" />-->
     <!--        &lt;!&ndash;批量注册包下所有mapper文件自动注册&ndash;&gt;-->
     <package name="com.Onely.crm.setting.dao"/>
+    <package name="com.Onely.crm.workbench.dao"/>
     <!--        <mapper resource="com.Mylearning/dao/ProvinceDao.xml" />-->
   </mappers>
 </configuration>
