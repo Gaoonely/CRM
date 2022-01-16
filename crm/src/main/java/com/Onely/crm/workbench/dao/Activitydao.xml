@@ -6,4 +6,32 @@
     <select id="getUserList" resultType="User">
         select * from tbl_user
     </select>
+    <insert id="creatActivity">
+        insert into tbl_activity(
+            id,
+            owner,
+            name,
+            startDate,
+            endDate,
+            cost,
+            description,
+            createTime,
+            createBy,
+            editTime,
+            editBy
+        )
+        values (
+            #{id},
+            #{owner},
+            #{name},
+            #{startDate},
+            #{endDate},
+            #{cost},
+            #{description},
+            #{createTime},
+            #{createBy},
+            #{editTime},
+            #{editBy}
+        )
+    </insert>
 </mapper>

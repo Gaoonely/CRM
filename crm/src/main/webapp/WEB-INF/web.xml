@@ -40,6 +40,7 @@
   <servlet-mapping>
     <servlet-name>com.Onely.crm.workbench.web.controller.ActivityController</servlet-name>
     <url-pattern>/workbench/Activity/getUerList.do</url-pattern>
+    <url-pattern>/workbench/Activity/creatActivity.do</url-pattern>
   </servlet-mapping>
   
   

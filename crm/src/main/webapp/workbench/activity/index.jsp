@@ -19,6 +19,14 @@
 <script type="text/javascript">
 
 	$(function(){
+		$(".time").datetimepicker({
+			minView: "month",
+			language:  'zh-CN',
+			format: 'yyyy-mm-dd',
+			autoclose: true,
+			todayBtn: true,
+			pickerPosition: "bottom-left"
+		});
 		$("#create_activity").click(function (){
 			var t = ""
 			var s = "<option value=\""
@@ -41,6 +49,28 @@
 			}
 			})
 			$("#createActivityModal").modal("show")
+		})
+		$("#save_activity").click(function (){
+			$.ajax({url:"workbench/Activity/creatActivity.do",
+				dataType:"json",
+				data:{
+					"owner":$.trim($("#create-marketActivityOwner").val()),
+					"name":$.trim($("#create-marketActivityName").val()),
+					"startDate":$.trim($("#create-startTime").val()),
+					"endDate":$.trim($("#create-endTime").val()),
+					"cost":$.trim($("#create-cost").val()),
+					"description":$.trim($("#create-describe").val()),
+				},
+				type:"post",
+				success:function (data){
+					if (data.success){
+						alert("活动添加成功")
+						$("#createActivityModal").modal("hide")
+					}else {
+						alert("活动添加失败")
+					}
+				}
+			})
 		})
 		
 	});
@@ -67,9 +97,6 @@
 							<label for="create-marketActivityOwner" class="col-sm-2 control-label">所有者<span style="font-size: 15px; color: red;">*</span></label>
 							<div class="col-sm-10" style="width: 300px;">
 								<select class="form-control" id="create-marketActivityOwner">
-								  <option>zhangsan</option>
-								  <option>lisi</option>
-								  <option>wangwu</option>
 								</select>
 							</div>
                             <label for="create-marketActivityName" class="col-sm-2 control-label">名称<span style="font-size: 15px; color: red;">*</span></label>
@@ -81,11 +108,11 @@
 						<div class="form-group">
 							<label for="create-startTime" class="col-sm-2 control-label">开始日期</label>
 							<div class="col-sm-10" style="width: 300px;">
-								<input type="text" class="form-control" id="create-startTime">
+								<input type="text" class="form-control time" id="create-startTime">
 							</div>
 							<label for="create-endTime" class="col-sm-2 control-label">结束日期</label>
 							<div class="col-sm-10" style="width: 300px;">
-								<input type="text" class="form-control" id="create-endTime">
+								<input type="text" class="form-control time" id="create-endTime">
 							</div>
 						</div>
                         <div class="form-group">
@@ -106,8 +133,9 @@
 					
 				</div>
 				<div class="modal-footer">
+					<!--ata-dismiss="modal"关闭模态窗口-->
 					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-					<button type="button" class="btn btn-primary" data-dismiss="modal">保存</button>
+					<button type="button" class="btn btn-primary" id="save_activity">保存</button>
 				</div>
 			</div>
 		</div>
