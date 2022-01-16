@@ -21,18 +21,23 @@
 	$(function(){
 		$("#create_activity").click(function (){
 			var t = ""
-			var s = "<option>"
+			var s = "<option value=\""
+			var v = "\">"
 			var e = "</option>"
 			//操作模态窗口方式：通过模态窗口jQuery对象调用modal方法并为方法传递参数：show打开模态窗口，hide关闭模态窗口
 			$.ajax({url:"workbench/Activity/getUerList.do",
 			dataType:"json",
-			tupe:"get",
+			type:"get",
 			success:function (data){
 				$.each(data,function (index,element){
-					t = t+s+element.name+e
+					t = t+s+element.id+v+element.name+e
 				})
-				// alert(t)
+				//在js中使用el表达式需要放在""中
+				var valu = "${user.id}"
 				$("#create-marketActivityOwner").html(t)
+				//默认选中value为当前用户id的选项
+				$("#create-marketActivityOwner").val(valu)
+
 			}
 			})
 			$("#createActivityModal").modal("show")
@@ -62,9 +67,9 @@
 							<label for="create-marketActivityOwner" class="col-sm-2 control-label">所有者<span style="font-size: 15px; color: red;">*</span></label>
 							<div class="col-sm-10" style="width: 300px;">
 								<select class="form-control" id="create-marketActivityOwner">
-<%--								  <option>zhangsan</option>--%>
-<%--								  <option>lisi</option>--%>
-<%--								  <option>wangwu</option>--%>
+								  <option>zhangsan</option>
+								  <option>lisi</option>
+								  <option>wangwu</option>
 								</select>
 							</div>
                             <label for="create-marketActivityName" class="col-sm-2 control-label">名称<span style="font-size: 15px; color: red;">*</span></label>
